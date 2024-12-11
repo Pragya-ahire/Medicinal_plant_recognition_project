@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="aloevera.css">
+</head>
+
+<body>
+  <section>
+    <div class="container flex">
+      <div class="left">
+        <div class="main_image">
+          <img src="image/aloevera1.jpg" class="slide">
+        </div>
+        <div class="option flex">
+          <img src="image/aloevera1.jpg" onclick="img('image/aloevera1.jpg')">
+          <img src="image/aloevera2.jpg" onclick="img('image/aloevera2.jpg')">
+          <img src="image/aloevera3.jpg" onclick="img('image/aloevera3.jpg')">
+          <img src="image/aloevera4.jpg" onclick="img('image/aloevera4.jpg')">
+          <img src="image/aloevera5.jpg" onclick="img('image/aloevera5.jpg')">
+          
+        </div>
+      </div>
+      <div class="right">
+        <h3>Aloevera Gel</h3>
+        <h4> <small>$</small>20.99 </h4>
+        <p>Aloe Vera Gel is 99% pure Aloe Vera, hygienically extracted & carefully packaged, to retain its natural healing & rejuvenating benefits. It is a multipurpose beauty care product designed for healthy skin, hair & scalp care.</p>
+        
+        <h5>Quantity</h5>
+        <div class="add flex1">
+          <span class="decrement">-</span>
+          <label class="count">1</label>
+          <span class="increment">+</span>
+        </div>
+
+        <button class="btn">Add to Bag</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    function img(anything) {
+      document.querySelector('.slide').src = anything;
+    }
+
+    function change(change) {
+      const line = document.querySelector('.home');
+      line.style.background = change;
+    }
+
+    const decrementButton = document.querySelector('.decrement');
+const incrementButton = document.querySelector('.increment');
+const countElement = document.querySelector('.count');
+let count = 0;
+decrementButton.addEventListener('click', () => {
+  count--;
+  updateCount();
+});
+incrementButton.addEventListener('click', () => {
+  count++;
+  updateCount();
+});
+function updateCount() {
+  countElement.textContent = count;
+  countElement.classList.remove('increasing', 'decreasing');
+  if (count < 0) {
+    countElement.classList.add('decreasing');
+  } else if (count > 0) {
+    countElement.classList.add('increasing');
+  }
+}
+  </script>
+</body>
+
+</html>

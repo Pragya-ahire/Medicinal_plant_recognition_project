@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="ginseng.css">
+</head>
+
+<body>
+  <section>
+    <div class="container flex">
+      <div class="left">
+        <div class="main_image">
+          <img src="image/turmeric1.jpg" class="slide">
+        </div>
+        <div class="option flex">
+          <img src="image/turmeric1.jpg" onclick="img('image/turmeric1.jpg')">
+          <img src="image/turmeric2.jpg" onclick="img('image/turmeric2.jpg')">
+          <img src="image/turmeric3.jpg" onclick="img('image/turmeric3.jpg')">
+          <img src="image/turmeric4.jpg" onclick="img('image/turmeric4.jpg')">
+          <img src="image/turmeric5.jpg" onclick="img('image/turmeric5.jpg')">
+          
+        </div>
+      </div>
+      <div class="right">
+        <h3>Turmeric Powder</h3>
+        <h4> <small>$</small>9.99 </h4>
+        <p>Turmeric is a common spice that comes from the root of Curcuma longa. It contains a chemical called curcumin, which might reduce swelling.</p>
+        
+        <h5>Quantity</h5>
+        <div class="add flex1">
+          <span class="decrement">-</span>
+          <label class="count">0</label>
+          <span class="increment">+</span>
+        </div>
+
+        <button class="btn">Add to Bag</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    function img(anything) {
+      document.querySelector('.slide').src = anything;
+    }
+
+    function change(change) {
+      const line = document.querySelector('.home');
+      line.style.background = change;
+    }
+    const decrementButton = document.querySelector('.decrement');
+const incrementButton = document.querySelector('.increment');
+const countElement = document.querySelector('.count');
+let count = 0;
+decrementButton.addEventListener('click', () => {
+  count--;
+  updateCount();
+});
+incrementButton.addEventListener('click', () => {
+  count++;
+  updateCount();
+});
+function updateCount() {
+  countElement.textContent = count;
+  countElement.classList.remove('increasing', 'decreasing');
+  if (count < 0) {
+    countElement.classList.add('decreasing');
+  } else if (count > 0) {
+    countElement.classList.add('increasing');
+  }
+}
+  </script>
+</body>
+
+</html>
